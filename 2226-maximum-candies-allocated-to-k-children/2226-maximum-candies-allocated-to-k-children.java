@@ -1,20 +1,33 @@
 class Solution {
-  public int maximumCandies(int[] candies, long k) {
-    int l = 1;
-    int r = (int) (Arrays.stream(candies).asLongStream().sum() / k);
+    public int maximumCandies(int[] candies, long k) {
+        long left = 1;
+        long right = 0;
+        long ans = 0;
+        for(int i : candies)
+            right += i;
 
-    while (l < r) {
-      final int m = (l + r) / 2;
-      if (numChildren(candies, m) < k)
-        r = m;
-      else
-        l = m + 1;
+        if(right < k)
+            return 0;
+
+        right /= k;
+        while(left <= right)
+        {
+            long mid = (left + right)/2;
+            if(isValid(mid, candies, k)){
+                ans = mid;
+                left = mid+1;
+            }
+            else
+                right = mid - 1;
+            
+        }
+        return (int)ans;
     }
-
-    return numChildren(candies, l) >= k ? l : l - 1;
-  }
-
-  private long numChildren(int[] candies, int m) {
-    return Arrays.stream(candies).asLongStream().reduce(0L, (subtotal, c) -> subtotal + c / m);
-  }
+    private boolean isValid(long num, int[] candies, long k)
+    {
+        long count = 0;
+        for(int i : candies)
+            count += i / num;
+        return count >= k;
+    }
 }
