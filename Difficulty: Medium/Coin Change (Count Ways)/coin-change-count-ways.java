@@ -33,24 +33,24 @@ class Solution {
         // code here.
         int[][] dp = new int[coins.length][sum + 1];
         
-        return f(coins, sum, coins.length - 1, dp);
-    }
-    private int f(int[] coins, int sum, int idx, int[][] dp)
-    {
-        
-        if(idx == 0)
-            return sum % coins[idx] == 0 ? 1 : 0;
-            
-        if(dp[idx][sum] != 0)
-            return dp[idx][sum];
+        for(int i = 0; i <= sum; i++)
+            dp[0][i] = i % coins[0] == 0 ? 1 : 0;
             
         int notTake = 0, take = 0;
         
-        notTake = f(coins, sum, idx - 1, dp);
-        
-        if(coins[idx] <= sum)
-            take = f(coins, sum - coins[idx], idx, dp);
-            
-        return dp[idx][sum] = (notTake + take);    
+        for(int i = 1; i < coins.length; i++)
+        {
+            for(int j = 0; j <= sum; j++)
+            {
+                notTake = dp[i - 1][j];
+                take = 0;
+                
+                if(coins[i] <= j)
+                   take = dp[i][j - coins[i]];
+                   
+                dp[i][j] = take + notTake;
+            }
+        }
+        return dp[coins.length - 1][sum];
     }
 }
