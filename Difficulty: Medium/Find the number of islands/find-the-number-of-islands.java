@@ -4,10 +4,10 @@ import java.util.*;
 class GFG {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int tc = scanner.nextInt(); // Number of test cases
+        int tc = scanner.nextInt();
         while (tc-- > 0) {
-            int n = scanner.nextInt(); // Number of rows
-            int m = scanner.nextInt(); // Number of columns
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
             char[][] grid = new char[n][m];
 
             // Read the grid input
@@ -17,7 +17,7 @@ class GFG {
                 }
             }
             Solution obj = new Solution();
-            int ans = obj.numIslands(grid);
+            int ans = obj.countIslands(grid);
             System.out.println(ans);
             System.out.println("~");
         }
@@ -29,44 +29,60 @@ class GFG {
 
 
 class Solution {
-    public int numIslands(char[][] grid) {
+    public int countIslands(char[][] grid) {
         // Code here
-        int r = grid.length, c = grid[0].length, ans = 0;
-        //boolean[][] visited = new int[r][c];
-        for(int row = 0; row < r; row++)
-        {
-            for(int col = 0; col < c; col++)
-            {
-                if(grid[row][col] == '1'){
-                    dfs(grid, row, col);
-                    ans += 1;
-                }
+        
+        int m = grid.length;
+        int n = grid[0].length;
+        int count = 0;
+        
+        boolean[][] visited = new boolean[m][n];
                 
+
+        for(int i = 0; i < m; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+                if(grid[i][j] == 'L' && !visited[i][j])
+                {
+                    count++;
+                    bfs(grid, i, j, visited);
+                }
             }
         }
-        return ans;
+        
+        return count;
     }
-    private void dfs(char[][] grid, int row, int col)
-    {
-        int[] next1 = { -1, -1, -1, 0, 0, 1, 1, 1 };
-        int[] next2 = { -1, 0, 1, -1, 1, -1, 0, 1 };
+    private void bfs(char[][] grid, int row, int col, boolean[][] visited)
+    {        
+        int m = grid.length;
+        int n = grid[0].length;
+        Queue<ArrayList<Integer>> queue = new LinkedList<>();
+        queue.add(new ArrayList<>(Arrays.asList(row, col)));
+        visited[row][col] = true;
         
-        grid[row][col] = '0';
-        
-        for(int k = 0; k < 8; k++)
+        while(!queue.isEmpty())
         {
-            int newR = row + next1[k];
-            int newC = col + next2[k];
+            int currentRow = queue.peek().get(0);
+            int currentCol = queue.peek().get(1);
+            queue.poll();
             
-            if(isSafe(grid, newR, newC))
-                dfs(grid, newR, newC);
-            
+            for(int nextRow = -1; nextRow <= 1; nextRow++)
+            {
+                for(int nextCol = -1; nextCol <= 1; nextCol++)
+                {
+                    int neighbourRow = currentRow + nextRow;
+                    int neighbourCol = currentCol + nextCol;
+                    
+                    if(neighbourRow >= 0 && neighbourRow < m && neighbourCol >= 0 && neighbourCol < n &&
+                       grid[neighbourRow][neighbourCol] == 'L' && !visited[neighbourRow][neighbourCol] )
+                    {
+                        visited[neighbourRow][neighbourCol] = true;
+                        queue.add(new ArrayList<>(Arrays.asList(neighbourRow, neighbourCol)));
+                    }
+                }
+            }
         }
-    }
-    private boolean isSafe(char[][] grid, int row, int col)
-    {
-        int r = grid.length, c = grid[0].length;
         
-        return (row > -1 && row < r && col > -1 && col < c && grid[row][col] == '1');
     }
 }
