@@ -7,26 +7,24 @@ class Solution {
         if(sum % 2 != 0)
             return false;
 
-        boolean[][] dp = new boolean[nums.length][sum];
-        return f(nums, sum/2,0,0, dp);
+        Boolean[][] dp = new Boolean[nums.length][sum/2 + 1];
+        return f(nums, sum/2,0, dp);
     }
-    static boolean f(int arr[], int target, int currentSum, int index, boolean[][] dp)
+    static boolean f(int arr[], int remaining, int index, Boolean[][] dp)
     {
 
-        if(currentSum == target)
+        if(remaining == 0)
             return true;
-            
-        if(index == arr.length)
+
+        if(index == arr.length || remaining < 0)
             return false;
 
-        if(dp[index][currentSum])
-            return dp[index][currentSum];
+        if(dp[index][remaining] != null)
+            return dp[index][remaining];
 
-        if(index > arr.length - 1 || currentSum > target)
-        {
-            return false;
-        }
+        boolean include = f(arr, remaining - arr[index], index+1, dp);
+        boolean exclude = f(arr, remaining, index+1, dp);
 
-        return  dp[index][currentSum] = f(arr, target, currentSum + arr[index], index+1, dp) || f(arr, target, currentSum, index+1, dp);
+        return  dp[index][remaining] = include || exclude;
     }
 }
