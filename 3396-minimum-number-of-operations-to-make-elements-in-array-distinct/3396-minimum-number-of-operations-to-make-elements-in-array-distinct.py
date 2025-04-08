@@ -2,16 +2,16 @@ from collections import Counter
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
         l = len(nums)
-        if(len(nums) < 2):
-            return 0
-        if(len(nums) == 2):
-            if(nums[0] != nums[1]):
-                return 0
-            return 1
-        if(len(nums) == 3):
-            if(nums[0] != nums[1] and nums[0] != nums[2] and nums[1] != nums[2]):
-                return 0
-            return 1
+        # if(len(nums) < 2):
+        #     return 0
+        # if(len(nums) == 2):
+        #     if(nums[0] != nums[1]):
+        #         return 0
+        #     return 1
+        # if(len(nums) == 3):
+        #     if(nums[0] != nums[1] and nums[0] != nums[2] and nums[1] != nums[2]):
+        #         return 0
+        #     return 1
         s = set()
 
         for i in reversed(nums):
