@@ -9,12 +9,9 @@ class Solution:
                 return 0
             return 1
         if(len(nums) == 3):
-
-            for i in range(3):
-                for j in range(3):
-                    if i != j and nums[i] == nums[j]:
-                        return 1
-            return 0
+            if(nums[0] != nums[1] and nums[0] != nums[2] and nums[1] != nums[2]):
+                return 0
+            return 1
         s = set()
 
         for i in reversed(nums):
