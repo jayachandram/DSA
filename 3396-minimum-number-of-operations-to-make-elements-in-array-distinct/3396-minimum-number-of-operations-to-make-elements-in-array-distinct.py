@@ -8,18 +8,20 @@ class Solution:
         while True:
             boolean = False
             if(len(nums) < 2):
-                return 0 + minOperations
+                return minOperations
             if(len(nums) == 2):
                 if(nums[0] != nums[1]):
-                    return 0 + minOperations
-                return 1 + minOperations
+                    return minOperations
+                minOperations += 1
+                return minOperations
             if(len(nums) == 3):
 
                 for i in range(3):
                     for j in range(3):
                         if i != j and nums[i] == nums[j]:
-                            return 1 + minOperations
-                return 0 + minOperations
+                            minOperations += 1
+                            return minOperations
+                return minOperations
 
             d = Counter(nums)
 
