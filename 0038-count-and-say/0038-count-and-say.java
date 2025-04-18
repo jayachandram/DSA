@@ -9,22 +9,24 @@ class Solution {
         for(int i = 1; i < n; i++)
         {
             StringBuilder current = new StringBuilder();
-            for(int j = 0; j < previous.length(); )
+            char ch = previous.charAt(0);
+            int count = 0;
+            for(int j = 0; j < previous.length();j++)
             {
-                int count = 0;
-                char c = previous.charAt(j);
-                int k = j;
-
-                while(k < previous.length() && previous.charAt(k) == c)
+                if(ch == previous.charAt(j))
                 {
                     count++;
-                    k++;
                 }
-
-                current.append(count);
-                current.append(c);
-                j = k;
+                else
+                {
+                    current.append(String.valueOf(count));
+                    current.append(ch);
+                    ch = previous.charAt(j);
+                    count = 1;
+                }
             }
+            current.append(String.valueOf(count));
+            current.append(ch);
             previous = current;
         }
         return previous.toString();
