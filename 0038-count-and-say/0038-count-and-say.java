@@ -1,33 +1,26 @@
 class Solution {
     public String countAndSay(int n) {
-
-        if(n == 1)
+        if (n == 1)
             return "1";
 
         StringBuilder previous = new StringBuilder("1");
 
-        for(int i = 1; i < n; i++)
-        {
+        for (int i = 1; i < n; i++) {
             StringBuilder current = new StringBuilder();
-            char ch = previous.charAt(0);
-            int count = 0;
-            for(int j = 0; j < previous.length();j++)
-            {
-                if(ch == previous.charAt(j))
-                {
+            int count = 1; // We start counting from 1 (because the first character is already considered)
+            for (int j = 1; j < previous.length(); j++) {
+                // If the current character is the same as the previous one, increment the count
+                if (previous.charAt(j) == previous.charAt(j - 1)) {
                     count++;
-                }
-                else
-                {
-                    current.append(String.valueOf(count));
-                    current.append(ch);
-                    ch = previous.charAt(j);
-                    count = 1;
+                } else {
+                    // Append the count and the character to the result
+                    current.append(count).append(previous.charAt(j - 1));
+                    count = 1; // Reset count for the next character
                 }
             }
-            current.append(String.valueOf(count));
-            current.append(ch);
-            previous = current;
+            // Append the last group (because it was never added in the loop)
+            current.append(count).append(previous.charAt(previous.length() - 1));
+            previous = current; // Move to the next sequence
         }
         return previous.toString();
     }
