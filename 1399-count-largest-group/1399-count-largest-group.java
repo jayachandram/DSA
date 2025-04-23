@@ -3,22 +3,23 @@ class Solution {
 
         HashMap<Integer, Integer> map = new HashMap<>();
         int max_size = 0;
-        
+        int count = 0;
+
         for(int i = 1; i <= n; i++)
         {
             int digit = sumOfDigits(i);
 
             map.put(digit, map.getOrDefault(digit,0) + 1);
-            max_size = Math.max(max_size, map.get(digit));
 
-        }
-
-        int count = 0;
-
-        for(int key : map.keySet())
-        {
-            if(map.get(key) == max_size)
+            if(max_size < map.get(digit))
+            {
+                max_size = map.get(digit);
+                count = 1;
+            }
+            else if(max_size == map.get(digit))
+            {
                 count++;
+            }
         }
 
         return count;
