@@ -61,42 +61,38 @@ public class LinkedList {
 
 
 /*
-
 class Node
 {
     int data;
     Node next;
     Node(int d) {data = d; next = null; }
 }
-
 */
-
-// Function should return the length of the loop in LL.
-
 class Solution {
-    // Function to find the length of a loop in the linked list.
     public int countNodesinLoop(Node head) {
-        // Add your code here.
         Node slow = head, fast = head;
-        while(fast != null && fast.next != null)
-        {
+
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-        
-            if(fast == slow)
-            {
-                Node temp= slow.next;
-                int cnt = 1;
-                
-                while(temp != slow)
-                {
-                    cnt++;
-                    temp = temp.next;
-                }
-                return cnt;
-            }    
-        
+
+            if (slow == fast) {
+                return countLoopLength(slow);
+            }
         }
+
         return 0;
+    }
+
+    private int countLoopLength(Node nodeInLoop) {
+        Node temp = nodeInLoop;
+        int count = 1;
+
+        while (temp.next != nodeInLoop) {
+            count++;
+            temp = temp.next;
+        }
+
+        return count;
     }
 }
