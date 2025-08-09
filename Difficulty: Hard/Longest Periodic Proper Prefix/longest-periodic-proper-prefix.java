@@ -1,0 +1,42 @@
+class Solution {
+         public static int[] zFunction(String s) {
+        int n = s.length();
+        int[] z = new int[n];
+
+        // [l, r] is the current segment that matches a prefix
+        int l = 0, r = 0;
+        for (int i = 1; i < n; ++i) {
+            if (i <= r) {
+                // inside the z-box: reuse previously computed values
+                z[i] = Math.min(r - i + 1, z[i - l]);
+            }
+            // try to extend the match beyond the current z-box
+            while (i + z[i] < n && s.charAt(z[i]) == s.charAt(i + z[i])) {
+                z[i]++;
+            }
+            // update the z-box if the match extended beyond
+            // current right boundary
+            if (i + z[i] - 1 > r) {
+                l = i;
+                r = i + z[i] - 1;
+            }
+        }
+        return z;
+    }
+
+    public static int getLongestPrefix(String s) {
+        int n = s.length();
+        int[] z = zFunction(s);
+
+        // traverse z-array to find position where
+        // suffix equals prefix
+        for (int i = n - 1 ; i > 0; i--) {
+            if (z[i] == n - i) {
+                // s[i:] is a suffix that is equal to 
+                // the prefix of length n - i
+                return i;
+            }
+        }
+        return -1;
+    }
+}
