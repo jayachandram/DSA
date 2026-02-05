@@ -1,22 +1,23 @@
 class Solution {
     public int maxOnes(int arr[], int k) {
-        int left = 0, zeros = 0, ans = 0;
-
-        for (int right = 0; right < arr.length; right++) {
-            if (arr[right] == 0) {
+        // code here
+        
+        int i = 0, zeros = 0, ans = 0;
+        for(int j = 0; j < arr.length; j++)
+        {
+            if(arr[j] == 0)
+            {
                 zeros++;
             }
-
-            while (zeros > k) {
-                if (arr[left] == 0) {
-                    zeros--;
-                }
-                left++;
+            
+            while(zeros > k)
+            {
+               
+                if(arr[i] == 0) zeros--;
+                 i++;
             }
-
-            ans = Math.max(ans, right - left + 1);
+            ans = Math.max(ans, j - i + 1);
         }
-
         return ans;
     }
 }
