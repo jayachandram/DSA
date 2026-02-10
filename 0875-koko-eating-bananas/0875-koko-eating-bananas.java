@@ -8,7 +8,8 @@ class Solution {
 
             long count = 0;
             for (int num : arr)
-                count += (num + mid - 1) / mid; // ceiling division
+                count += (long)Math.ceil((double)num / mid);
+
 
             if (count <= k) max = mid - 1;
             else min = mid + 1;
