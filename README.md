@@ -40,8 +40,21 @@ Each problem has:
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0118-pascals-triangle](https://github.com/jayachandram/DSA/tree/main/0118-pascals-triangle/) | Easy |
+| [0229-majority-element-ii](https://github.com/jayachandram/DSA/tree/main/0229-majority-element-ii/) | Medium |
 ## Dynamic Programming
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0118-pascals-triangle](https://github.com/jayachandram/DSA/tree/main/0118-pascals-triangle/) | Easy |
+## Hash Table
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0229-majority-element-ii](https://github.com/jayachandram/DSA/tree/main/0229-majority-element-ii/) | Medium |
+## Sorting
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0229-majority-element-ii](https://github.com/jayachandram/DSA/tree/main/0229-majority-element-ii/) | Medium |
+## Counting
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0229-majority-element-ii](https://github.com/jayachandram/DSA/tree/main/0229-majority-element-ii/) | Medium |
 <!---LeetCode Topics End-->
