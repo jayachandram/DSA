@@ -61,4 +61,8 @@ Each problem has:
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [1758-minimum-changes-to-make-alternating-binary-string](https://github.com/jayachandram/DSA/tree/main/1758-minimum-changes-to-make-alternating-binary-string/) | Easy |
+## Math
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0007-reverse-integer](https://github.com/jayachandram/DSA/tree/main/0007-reverse-integer/) | Medium |
 <!---LeetCode Topics End-->
