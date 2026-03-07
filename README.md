@@ -45,6 +45,7 @@ Each problem has:
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0118-pascals-triangle](https://github.com/jayachandram/DSA/tree/main/0118-pascals-triangle/) | Easy |
+| [1155-number-of-dice-rolls-with-target-sum](https://github.com/jayachandram/DSA/tree/main/1155-number-of-dice-rolls-with-target-sum/) | Medium |
 ## Hash Table
 | Problem Name | Difficulty |
 | ------- | ------- |
