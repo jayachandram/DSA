@@ -67,4 +67,8 @@ Each problem has:
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0007-reverse-integer](https://github.com/jayachandram/DSA/tree/main/0007-reverse-integer/) | Medium |
+## Bit Manipulation
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1009-complement-of-base-10-integer](https://github.com/jayachandram/DSA/tree/main/1009-complement-of-base-10-integer/) | Easy |
 <!---LeetCode Topics End-->
