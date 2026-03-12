@@ -61,6 +61,7 @@ Each problem has:
 ## String
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [1108-defanging-an-ip-address](https://github.com/jayachandram/DSA/tree/main/1108-defanging-an-ip-address/) | Easy |
 | [1758-minimum-changes-to-make-alternating-binary-string](https://github.com/jayachandram/DSA/tree/main/1758-minimum-changes-to-make-alternating-binary-string/) | Easy |
 | [1784-check-if-binary-string-has-at-most-one-segment-of-ones](https://github.com/jayachandram/DSA/tree/main/1784-check-if-binary-string-has-at-most-one-segment-of-ones/) | Easy |
 ## Math
