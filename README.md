@@ -49,6 +49,7 @@ Each problem has:
 ## Hash Table
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0013-roman-to-integer](https://github.com/jayachandram/DSA/tree/main/0013-roman-to-integer/) | Easy |
 | [0229-majority-element-ii](https://github.com/jayachandram/DSA/tree/main/0229-majority-element-ii/) | Medium |
 ## Sorting
 | Problem Name | Difficulty |
@@ -61,6 +62,7 @@ Each problem has:
 ## String
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0013-roman-to-integer](https://github.com/jayachandram/DSA/tree/main/0013-roman-to-integer/) | Easy |
 | [1108-defanging-an-ip-address](https://github.com/jayachandram/DSA/tree/main/1108-defanging-an-ip-address/) | Easy |
 | [1758-minimum-changes-to-make-alternating-binary-string](https://github.com/jayachandram/DSA/tree/main/1758-minimum-changes-to-make-alternating-binary-string/) | Easy |
 | [1784-check-if-binary-string-has-at-most-one-segment-of-ones](https://github.com/jayachandram/DSA/tree/main/1784-check-if-binary-string-has-at-most-one-segment-of-ones/) | Easy |
@@ -68,6 +70,7 @@ Each problem has:
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0007-reverse-integer](https://github.com/jayachandram/DSA/tree/main/0007-reverse-integer/) | Medium |
+| [0013-roman-to-integer](https://github.com/jayachandram/DSA/tree/main/0013-roman-to-integer/) | Easy |
 ## Bit Manipulation
 | Problem Name | Difficulty |
 | ------- | ------- |
